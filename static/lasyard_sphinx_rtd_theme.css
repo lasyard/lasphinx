@@ -1,7 +1,7 @@
 /* The colors is set to be consistent with sphinx_rtd_theme */
 
 /* It is not referenced in sphinx_rtd_theme */
-@import url("../basic.css");
+@import url("basic.css");
 
 nav.wy-nav-side a:visited {
     color: #e9b9e9;
