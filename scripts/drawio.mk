@@ -2,7 +2,7 @@ DRAWIO_CMD ?= /Applications/draw.io.app/Contents/MacOS/draw.io -x -f png
 DRAWIO_SRC_DIR ?= _images
 DRAWIO_DST_DIR ?= _generated_images
 
-DRAWIO_SRCS := $(shell find $(DRAWIO_SRC_DIR) -type f -name '*.drawio')
+DRAWIO_SRCS := $(shell find -L $(DRAWIO_SRC_DIR) -type f -name '*.drawio')
 DRAWIO_PNGS := $(patsubst $(DRAWIO_SRC_DIR)/%.drawio,$(DRAWIO_DST_DIR)/%.png,$(DRAWIO_SRCS))
 
 $(DRAWIO_DST_DIR)/%.png: $(DRAWIO_SRC_DIR)/%.drawio
