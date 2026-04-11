@@ -3,9 +3,11 @@
 if ! command -v sphinx-build >/dev/null 2>&1; then
     echo "sphinx-build not found, activating virtualenv if available"
     if ! ${VIRTUAL_ENV:-false}; then
-        echo "Not in a virtualenv, attempting to activate .venv"
+        echo "Not in a virtualenv, attempting to activate .venv, ~/.venv"
         if [ -f .venv/bin/activate ]; then
             . ./.venv/bin/activate
+        elif [ -f ~/.venv/bin/activate ]; then
+            . ~/.venv/bin/activate
         fi
     fi
 fi
