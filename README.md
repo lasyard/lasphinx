@@ -1,4 +1,4 @@
-# sphinx-common
+# lasphinx
 
 Common staffs used by sphinx documentation projects.
 
@@ -7,66 +7,57 @@ Common staffs used by sphinx documentation projects.
 In your project directory:
 
 ```sh
-git submodule add git@github.com:lasyard/sphinx-common.git
+git submodule add git@github.com:lasyard/lasphinx.git
 ```
 
-First of all, add the sub directory to exclude patterns to prevent it from being parsed by Sphinx. In the configuration file (generally `conf.py`) file of your project:
+Then at the beginning of your `conf.py`:
 
 ```py
-exclude_patterns += ['sphinx-common']
+from lasphinx import *
 ```
 
-### Extensions
+Note: the globals in lasphinx must be imported to serve as Sphinx config.
 
-In the configuration file:
+To build html:
 
-```py
-from pathlib import Path
-
-sys.path.append(str(Path('sphinx-common/ext').resolve()))
-
-extensions += [
-    'lasyard_literalinclude',
-    'ellipsis_to_vertical',
-]
+```sh
+lasphinx/build.sh
 ```
 
-The `lasyard_literalinclude` is an override of the standard `literalinclude` directive, which have the following features:
+To clean the build:
 
-- Automatically set `language` option according to the extension of included file
-- Remove the `---`, `+++` headers if `diff` options is used to hide the file paths which may be sensitive
+```sh
+lasphinx/build.sh clean
+```
 
-The `ellipsis_to_vertical` is to replace single lines of `...` to vertical `⋮`s in literal blocks if the language is `console`.
+## Extensions
 
-### Styles
+The module add these extensions to Sphinx:
+
+- `lasyard_literalinclude` is an override of the standard `literalinclude` directive, which have the following features:
+  - Automatically set `language` option according to the extension of included file
+  - Remove the `---`, `+++` headers if `diff` options is used to hide the file paths which may be sensitive
+- `ellipsis_to_vertical` is to replace single lines of `...` to vertical `⋮`s in literal blocks if the language is `console`.
+
+## Styles
 
 CSS files were provided to adjust the appearance of html pages. In the configuration file:
 
 ```py
-html_static_path = ['sphinx-common/static']
+html_static_path = ['lasphinx/static']
 
 if html_theme == 'sphinx_rtd_theme':
     html_css_files = ['lasyard_sphinx_rtd_theme.css']
 ```
 
-### Scripts
+## Scripts
 
 There are scripts to build `drawio` and `puml` files to `png` files, just run in the root of source directory:
-
-```sh
-sphinx-common/scripts/build.sh
-```
-
-Or clean the output images by:
-
-```sh
-sphinx-common/scripts/build.sh clean
-```
 
 Note `drawio` and `plantuml` tools must be installed, and the varible `DRAWIO_CMD` and `PUML_CMD` in file `drawio.mk` and `puml.mk` may need to be changed to the real path of the tools.
 
 The default image source files is searched in directory `_images` and the target images is in `_generated_images`.
 
-### MIT License
+## MIT License
 
 <https://lasy.fwh.is/mit_license>

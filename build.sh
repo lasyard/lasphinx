@@ -12,15 +12,16 @@ if ! command -v sphinx-build >/dev/null 2>&1; then
     fi
 fi
 
-SPHINX_COMMON_DIR=sphinx-common
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+LASPHINX_DIR="${SCRIPT_DIR##*/}"
 
 case $1 in
 clean)
-    make clean
-    make -f ${SPHINX_COMMON_DIR}/scripts/images.mk clean
+    PYTHONPATH=. make clean
+    make -f ${LASPHINX_DIR}/scripts/images.mk clean
     ;;
 *)
-    make -f ${SPHINX_COMMON_DIR}/scripts/images.mk
-    make html
+    make -f ${LASPHINX_DIR}/scripts/images.mk
+    PYTHONPATH=.:./${LASPHINX_DIR}/ext make html
     ;;
 esac
