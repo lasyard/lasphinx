@@ -30,6 +30,14 @@ To clean the build:
 lasphinx/build.sh clean
 ```
 
+If you are not to use the script for building, in order to find the `lasphinx` module, add the following at the beginning of `conf.py`:
+
+```py
+import sys
+
+sys.path.append('.')
+```
+
 ## Extensions
 
 The module add these extensions to Sphinx:

@@ -1,4 +1,9 @@
+import sys
+
 from pathlib import Path
+
+lasphinx_dir = Path(__file__).resolve().parent.name
+sys.path.append(str(Path(f'{lasphinx_dir}/ext').resolve()))
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -32,11 +37,8 @@ myst_enable_extensions = [
 
 myst_dmath_allow_labels=True
 
-
 templates_path = ['_templates']
 exclude_patterns = ['.*', '_*', 'Thumbs.db', 'README.*']
-
-lasphinx_dir = Path(__file__).resolve().parent.name
 
 exclude_patterns += [lasphinx_dir]
 html_static_path = [f'{lasphinx_dir}/static']

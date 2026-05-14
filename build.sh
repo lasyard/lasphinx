@@ -22,6 +22,6 @@ clean)
     ;;
 *)
     make -f ${LASPHINX_DIR}/scripts/images.mk
-    PYTHONPATH=.:./${LASPHINX_DIR}/ext make html
+    PYTHONPATH=. make html
     ;;
 esac
