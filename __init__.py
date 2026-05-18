@@ -25,6 +25,7 @@ copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r"^\$ |^# |^% "
 
 myst_enable_extensions = [
+    'alert',
     'attrs_block',
     'attrs_inline',
     'colon_fence',
@@ -42,3 +43,6 @@ exclude_patterns = ['.*', '_*', 'Thumbs.db', 'README.*', 'AGENTS.md']
 
 exclude_patterns += [lasphinx_dir]
 html_static_path = [f'{lasphinx_dir}/static']
+
+# https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#auto-generated-header-anchors
+myst_heading_anchors = 3
