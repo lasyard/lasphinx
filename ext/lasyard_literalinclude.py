@@ -3,6 +3,7 @@ from docutils import nodes
 
 import re
 
+
 # Map file extensions to Sphinx's Pygments language names
 EXT_LANG_MAP = {
     ".txt": "text",
@@ -35,15 +36,18 @@ EXT_LANG_MAP = {
     ".swift": "swift",
 }
 
+
 def guess_language(filename):
     import os
     _, ext = os.path.splitext(filename)
     return EXT_LANG_MAP.get(ext.lower())
 
+
 def strip_diff_headers(diff_text):
     lines = diff_text.splitlines(keepends=True)
     header_re = re.compile(r"^---|^\+\+\+|^@@.*@@$")
     return ''.join(line for line in lines if not header_re.match(line))
+
 
 class LasyardLiteralInclude(LiteralInclude):
     def run(self):
@@ -60,6 +64,7 @@ class LasyardLiteralInclude(LiteralInclude):
             new_result = nodes.literal_block(stripped, stripped, language="udiff")
             return [new_result]
         return super().run()
+
 
 def setup(app):
     app.add_directive("literalinclude", LasyardLiteralInclude, override=True)

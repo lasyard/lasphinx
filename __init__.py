@@ -2,6 +2,7 @@ import sys
 
 from pathlib import Path
 
+
 lasphinx_dir = Path(__file__).resolve().parent.name
 sys.path.append(str(Path(f'{lasphinx_dir}/ext').resolve()))
 
@@ -17,8 +18,9 @@ extensions = [
 ]
 
 extensions += [
-    'lasyard_literalinclude',
     'ellipsis_to_vertical',
+    'lasyard_literalinclude',
+    'mermaid_fence',
 ]
 
 copybutton_prompt_is_regexp = True
@@ -36,6 +38,7 @@ myst_enable_extensions = [
     'tasklist',
 ]
 
+myst_colon_fence_exact_match=True
 myst_dmath_allow_labels=True
 
 templates_path = ['_templates']

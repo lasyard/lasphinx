@@ -42,10 +42,11 @@ sys.path.append('.')
 
 The module add these extensions to Sphinx:
 
+- `ellipsis_to_vertical` is to replace single lines of `...` to vertical `⋮`s in literal blocks if the language is `console`.
 - `lasyard_literalinclude` is an override of the standard `literalinclude` directive, which have the following features:
   - Automatically set `language` option according to the extension of included file
   - Remove the `---`, `+++` headers if `diff` options is used to hide the file paths which may be sensitive
-- `ellipsis_to_vertical` is to replace single lines of `...` to vertical `⋮`s in literal blocks if the language is `console`.
+- `mermaid_fence` translate GitHub style ```` ```mermaid ```` to MyST style ```` ```{mermaid} ````
 
 ## Styles
 

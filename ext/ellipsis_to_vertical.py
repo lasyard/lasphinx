@@ -1,5 +1,6 @@
 from docutils import nodes
 
+
 def replace_ellipsis_in_codeblocks(app, doctree, fromdocname):
     for node in doctree.traverse(nodes.literal_block):
         if node.attributes.get("language") == 'console':
@@ -11,6 +12,7 @@ def replace_ellipsis_in_codeblocks(app, doctree, fromdocname):
             # It seems problematic if the rawsource does not match the text
             if replaced:
                 node.rawsource = node.astext()
+
 
 def setup(app):
     app.connect('doctree-resolved', replace_ellipsis_in_codeblocks)
