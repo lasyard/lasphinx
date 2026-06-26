@@ -42,7 +42,7 @@ myst_colon_fence_exact_match=True
 myst_dmath_allow_labels=True
 
 templates_path = ['_templates']
-exclude_patterns = ['.*', '_*', 'Thumbs.db', 'README.*', 'AGENTS.md']
+exclude_patterns = ['.*', '_*', 'Thumbs.db', 'README.*']
 
 exclude_patterns += [lasphinx_dir]
 html_static_path = [f'{lasphinx_dir}/static']
