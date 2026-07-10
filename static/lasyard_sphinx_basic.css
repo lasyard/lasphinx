@@ -1,0 +1,23 @@
+/* It is not referenced in sphinx_rtd_theme */
+@import url("basic.css");
+
+table.align-left,
+table.align-right {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table td.text-left {
+    text-align: left;
+}
+
+table td.text-right {
+    text-align: right;
+}
+
+p>img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

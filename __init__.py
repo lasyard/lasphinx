@@ -47,5 +47,7 @@ exclude_patterns = ['.*', '_*', 'Thumbs.db', 'README.*']
 exclude_patterns += [lasphinx_dir]
 html_static_path = [f'{lasphinx_dir}/static']
 
+html_css_files = ['lasyard_sphinx_basic.css']
+
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#auto-generated-header-anchors
 myst_heading_anchors = 3
