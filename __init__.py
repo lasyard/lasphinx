@@ -41,6 +41,11 @@ myst_enable_extensions = [
 myst_colon_fence_exact_match=True
 myst_dmath_allow_labels=True
 
+myst_substitutions = {
+    "ai_main": '[🤖以下内容为人工智能生成 | AI Generated Contents]{.badge}',
+    "ai_help": '[✨以下内容借助人工智能编写 | AI Assisted Contents]{.badge}',
+}
+
 templates_path = ['_templates']
 exclude_patterns = ['.*', '_*', 'Thumbs.db', 'README.*']
 
